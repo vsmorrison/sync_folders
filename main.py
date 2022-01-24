@@ -22,4 +22,7 @@ if __name__ == '__main__':
     )
     parser.add_argument('log_path', type=str, help='log file path')
     args = parser.parse_args()
-    main(args.source, args.replica, args.sync_interval, args.log_path)
+    try:
+        main(args.source, args.replica, args.sync_interval, args.log_path)
+    except ValueError:
+        print("Source or target directory doesn't exist")
